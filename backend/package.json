@@ -4,9 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node dist/server.ts",
-    "dev": "nodemon server.ts"
-  },
+    "start": "node dist/server.js",
+    "dev": "nodemon server.ts",
+    "build": "tsc"
+},
   "dependencies": {
     "@types/express": "^5.0.0",
     "@types/node": "^22.12.0",

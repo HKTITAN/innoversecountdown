@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import io from 'socket.io-client';
+import socket from './socket';
 
 const QuoteDisplay: React.FC = () => {
 
@@ -7,7 +7,6 @@ const QuoteDisplay: React.FC = () => {
     const [quote, setQuote] = useState('');
 
     useEffect(() => {
-        const socket = io('https://countdown-timer-em6a-fkgahixo0-aditya-kalias-projects.vercel.app');
 
         socket.on('announcement', ({ message, duration }) => {
             setCurrentAnnouncement({ message, duration });

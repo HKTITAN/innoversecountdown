@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import io from 'socket.io-client';
 import '../styles.css';
 import logos from '../assets/logos.svg';
 import innoverseLogo from '../assets/innoverse-logo.svg';
 import partners from '../assets/partners.svg';
 import QuoteDisplay from './Quote';
+import socket from './socket';
 
 const CountdownPage: React.FC = () => {
   const [countdown, setCountdown] = useState(0);
@@ -21,7 +21,6 @@ const CountdownPage: React.FC = () => {
 
   useEffect(() => {
     console.log("Connecting to socket.io server...");
-    const socket = io('https://countdown-timer-em6a-fkgahixo0-aditya-kalias-projects.vercel.app');
 
     socket.on('connect', () => {
       console.log('Connected to server! Socket ID:', socket.id);

@@ -21,7 +21,7 @@ const CountdownPage: React.FC = () => {
 
   useEffect(() => {
     console.log("Connecting to socket.io server...");
-    const socket = io('http://localhost:5000');
+    const socket = io('https://countdown-timer-em6a-fkgahixo0-aditya-kalias-projects.vercel.app');
 
     socket.on('connect', () => {
       console.log('Connected to server! Socket ID:', socket.id);

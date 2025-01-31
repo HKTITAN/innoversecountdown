@@ -9,7 +9,7 @@ app.use(cors());
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: ['http://localhost:3000', 'http://localhost:5000'],
+    origin: ['https://countdown-timer-7tn39f6x1-aditya-kalias-projects.vercel.app', 'http://localhost:5000'],
     methods: ['GET', 'POST'],
   },
 });

@@ -7,7 +7,7 @@ const QuoteDisplay: React.FC = () => {
     const [quote, setQuote] = useState('');
 
     useEffect(() => {
-        const socket = io('http://localhost:5000');
+        const socket = io('https://countdown-timer-em6a-fkgahixo0-aditya-kalias-projects.vercel.app');
 
         socket.on('announcement', ({ message, duration }) => {
             setCurrentAnnouncement({ message, duration });

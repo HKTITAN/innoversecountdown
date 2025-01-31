@@ -22,7 +22,7 @@ const LoginPage: React.FC = () => {
   return (
     <div id="login" className="login-container">
       <div className="login-box">
-        <h2><i className="fas fa-lock"></i> Admin Login</h2> {/* You'll likely need to import the Font Awesome icon */}
+        <h2><i className="fas fa-lock"></i> Admin Login</h2>
         <input
           type="password"
           id="password"
@@ -32,7 +32,7 @@ const LoginPage: React.FC = () => {
         />
         {error && <p className="error-message">{error}</p>}
         <button onClick={handleLogin}>
-          <i className="fas fa-sign-in-alt"></i> Login {/* You'll likely need to import the Font Awesome icon */}
+          <i className="fas fa-sign-in-alt"></i> Login
         </button>
       </div>
     </div>

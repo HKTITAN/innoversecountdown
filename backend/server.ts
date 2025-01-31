@@ -16,7 +16,6 @@ const io = new Server(server, {
 
 let countdown: number = 0;
 let isPaused: boolean = false;
-let interval: NodeJS.Timeout | null = null;
 const connectedClients = new Map<string, string>();
 
 io.on('connection', (socket) => {
@@ -58,22 +57,19 @@ io.on('connection', (socket) => {
 
   socket.on('disconnect', () => {
     console.log('User disconnected:', socket.id);
-    connectedClients.delete(socket.id); // Remove client from the map
-    io.emit('client-disconnected', socket.id); // Notify all clients about disconnection
+    connectedClients.delete(socket.id);
+    io.emit('client-disconnected', socket.id);
     io.emit('connected-clients-list', Array.from(connectedClients.keys()));
   });
 });
 
-// Update countdown every second (This part is NOT protected)
-if (!interval) {
-  interval = setInterval(() => {
+setInterval(() => {
     if (!isPaused && countdown > 0) {
       countdown--;
       console.log('Countdown updated:', countdown);
       io.emit('countdown-update', { countdown, isPaused });
     }
   }, 1000);
-}
 
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => {
